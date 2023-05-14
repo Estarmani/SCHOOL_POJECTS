@@ -87,13 +87,14 @@ namespace First_GPA_App
                     totalCourseUnit += courseUnit;
                     totalGradeUnit += grade_unit;
 
-                    allPrint += $"| {Course, -9} {courseUnit} {grade} {grade_unit} {remark}  |\n";
+                    allPrint += $"| {Course, -9} {courseUnit, -9} {grade, -9} {grade_unit,-9} {remark,-9}  |\n";
 
                 }
                 Console.Clear();
                 GPA = total_weight_point / totalCourseUnit;
                 total_course_unit_pass += totalGradeUnit;
                 total_course_unit_reg += totalCourseUnit;
+
 
                 Console.WriteLine(allPrint);
 
