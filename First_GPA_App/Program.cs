@@ -26,6 +26,7 @@ namespace First_GPA_App
             double weightPoint = 0;
             double GPA;
             int totalCourseUnit = 0;
+            int totalGradeUnit = 0;
             int total_course_unit_reg = 0;
             double total_course_unit_pass = 0;
             double total_weight_point = 0;
@@ -84,13 +85,14 @@ namespace First_GPA_App
                     weightPoint += courseUnit * grade_unit;
                     total_weight_point += weightPoint;
                     totalCourseUnit += courseUnit;
+                    totalGradeUnit += grade_unit;
 
                     allPrint += $"{Course}, {courseUnit}, {grade}, {grade_unit}, {remark}\n";
 
                 }
-
+                Console.Clear();
                 GPA = total_weight_point / totalCourseUnit;
-                total_course_unit_pass += grade_unit;
+                total_course_unit_pass += totalGradeUnit;
                 total_course_unit_reg += totalCourseUnit;
 
                 Console.WriteLine(allPrint);
