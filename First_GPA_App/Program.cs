@@ -87,7 +87,7 @@ namespace First_GPA_App
                     totalCourseUnit += courseUnit;
                     totalGradeUnit += grade_unit;
 
-                    allPrint += $"{Course}, {courseUnit}, {grade}, {grade_unit}, {remark}\n";
+                    allPrint += $"| {Course, -9} {courseUnit} {grade} {grade_unit} {remark}  |\n";
 
                 }
                 Console.Clear();
