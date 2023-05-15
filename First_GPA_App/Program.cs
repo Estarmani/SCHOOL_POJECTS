@@ -50,44 +50,50 @@ namespace First_GPA_App
                     {
                         grade = 'A';
                         grade_unit = 5;
+                        weightPoint = courseUnit * grade_unit;
                         remark = "Excellent";
                     }
                     else if (courseScore >= 60 && courseScore <= 69)
                     {
                         grade = 'B';
                         grade_unit = 4;
+                        weightPoint = courseUnit * grade_unit;
                         remark = "Very Good";
                     }
                     else if (courseScore >= 50 && courseScore <= 59)
                     {
                         grade = 'C';
                         grade_unit = 3;
+                        weightPoint = courseUnit * grade_unit;
                         remark = "Good";
                     }
                     else if (courseScore >= 45 && courseScore <= 49)
                     {
                         grade = 'D';
                         grade_unit = 2;
+                        weightPoint = courseUnit * grade_unit;
                         remark = "Fair";
                     }
                     else if (courseScore >= 40 && courseScore <= 44)
                     {
                         grade = 'E';
                         grade_unit = 1;
+                        weightPoint = courseUnit * grade_unit;
                         remark = "Pass";
                     }
                     else
                     {
                         grade = 'F';
                         grade_unit = 0;
+                        weightPoint = courseUnit * grade_unit;
                         remark = "Fail";
                     }
-                    weightPoint += courseUnit * grade_unit;
+
                     total_weight_point += weightPoint;
                     totalCourseUnit += courseUnit;
                     totalGradeUnit += grade_unit;
 
-                    allPrint += $"| {Course, -9} {courseUnit, -9} {grade, -9} {grade_unit,-9} {remark,-9}  |\n";
+                    allPrint += $"| {Course,-15} | {courseUnit, -13} | {grade, -7} | {grade_unit,-10} | {remark,-7} |\n\n";
 
                 }
                 Console.Clear();
@@ -95,9 +101,11 @@ namespace First_GPA_App
                 total_course_unit_pass += totalGradeUnit;
                 total_course_unit_reg += totalCourseUnit;
 
-
+                Console.WriteLine("|-----------------|---------------|---------|------------|-----------|");
+                Console.WriteLine("| COURSE AND CODE |  COURSE UNIT  |  GRADE  | GRADE UNIT |   REMARK  |");
+                Console.WriteLine("|-----------------|---------------|---------|------------|-----------|");
                 Console.WriteLine(allPrint);
-
+                Console.WriteLine("|-----------------|---------------|---------|------------|-----------|");
                 Console.WriteLine("Total course unit registeres is {0}" ,(total_course_unit_reg));
                 Console.WriteLine("Total course unit passed is {0} ", (total_course_unit_pass));
                 Console.WriteLine("Total weight point is {0}" , (total_weight_point));
