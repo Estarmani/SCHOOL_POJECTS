@@ -10,8 +10,7 @@ namespace First_GPA_App
 {
     public class PrintTable:Program
     {
-        
-
+       
         public void PrintHeader()
         {
             
@@ -45,7 +44,7 @@ namespace First_GPA_App
         public static double total_weight_point = 0;
         public static string allPrint = "";
 
-        public void Calculation()
+        public static void Calculation()
         {
 
             Console.WriteLine("        GPA CALCULATOR       ");
@@ -56,82 +55,78 @@ namespace First_GPA_App
 
             try
             {
+                for (int x = 0; x < TotalCourse; x++)
+                {
+                    Console.WriteLine("Enter course and code");
+                    Course = Console.ReadLine();
 
+                    Console.WriteLine($"Enter course unit for {Course} : ");
+                    courseUnit = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine($"enter course score {Course} : ");
+                    courseScore = int.Parse(Console.ReadLine());
+
+
+                    if (courseScore >= 70 && courseScore <= 100)
+                    {
+                        grade = 'A';
+                        grade_unit = 5;
+                        weightPoint = courseUnit * grade_unit;
+                        remark = "Excellent";
+                    }
+                    else if (courseScore >= 60 && courseScore <= 69)
+                    {
+                        grade = 'B';
+                        grade_unit = 4;
+                        weightPoint = courseUnit * grade_unit;
+                        remark = "Very Good";
+                    }
+                    else if (courseScore >= 50 && courseScore <= 59)
+                    {
+                        grade = 'C';
+                        grade_unit = 3;
+                        weightPoint = courseUnit * grade_unit;
+                        remark = "Good";
+                    }
+                    else if (courseScore >= 45 && courseScore <= 49)
+                    {
+                        grade = 'D';
+                        grade_unit = 2;
+                        weightPoint = courseUnit * grade_unit;
+                        remark = "Fair";
+                    }
+                    else if (courseScore >= 40 && courseScore <= 44)
+                    {
+                        grade = 'E';
+                        grade_unit = 1;
+                        weightPoint = courseUnit * grade_unit;
+                        remark = "Pass";
+                    }
+                    else
+                    {
+                        grade = 'F';
+                        grade_unit = 0;
+                        weightPoint = courseUnit * grade_unit;
+                        remark = "Fail";
+                    }
+
+                    total_weight_point += weightPoint;
+                    totalCourseUnit += courseUnit;
+                    totalGradeUnit += grade_unit;
+
+                    allPrint += $"| {Course,-15} | {courseUnit,-13} | {grade,-7} | {grade_unit,-10} | {remark,-10} |\n";
+                }
             }
             catch (Exception)
             {
 
                 Console.WriteLine("invalide");
             }
-            for (int x = 0; x < TotalCourse; x++)
-            {
-                Console.WriteLine("Enter course and code");
-                Course = Console.ReadLine();
-
-                Console.WriteLine($"Enter course unit for {Course} : ");
-                courseUnit = int.Parse(Console.ReadLine());
-
-                Console.WriteLine($"enter course score {Course} : ");
-                courseScore = int.Parse(Console.ReadLine());
-
-
-                if (courseScore >= 70 && courseScore <= 100)
-                {
-                    grade = 'A';
-                    grade_unit = 5;
-                    weightPoint = courseUnit * grade_unit;
-                    remark = "Excellent";
-                }
-                else if (courseScore >= 60 && courseScore <= 69)
-                {
-                    grade = 'B';
-                    grade_unit = 4;
-                    weightPoint = courseUnit * grade_unit;
-                    remark = "Very Good";
-                }
-                else if (courseScore >= 50 && courseScore <= 59)
-                {
-                    grade = 'C';
-                    grade_unit = 3;
-                    weightPoint = courseUnit * grade_unit;
-                    remark = "Good";
-                }
-                else if (courseScore >= 45 && courseScore <= 49)
-                {
-                    grade = 'D';
-                    grade_unit = 2;
-                    weightPoint = courseUnit * grade_unit;
-                    remark = "Fair";
-                }
-                else if (courseScore >= 40 && courseScore <= 44)
-                {
-                    grade = 'E';
-                    grade_unit = 1;
-                    weightPoint = courseUnit * grade_unit;
-                    remark = "Pass";
-                }
-                else
-                {
-                    grade = 'F';
-                    grade_unit = 0;
-                    weightPoint = courseUnit * grade_unit;
-                    remark = "Fail";
-                }
-
-                total_weight_point += weightPoint;
-                totalCourseUnit += courseUnit;
-                totalGradeUnit += grade_unit;
-
-                allPrint += $"| {Course,-15} | {courseUnit,-13} | {grade,-7} | {grade_unit,-10} | {remark, -10} |\n";
-
-            }
             Console.Clear();
             GPA = total_weight_point / totalCourseUnit;
             total_course_unit_pass += totalGradeUnit;
             total_course_unit_reg += totalCourseUnit;
-            
         }
-
         public static void Main()
         {
             var obj = new Program();
@@ -140,4 +135,5 @@ namespace First_GPA_App
             objTable.PrintHeader();
         }
     }
+   
 }
