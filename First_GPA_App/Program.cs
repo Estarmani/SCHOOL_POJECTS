@@ -48,7 +48,7 @@ namespace First_GPA_App
         public void Calculation()
         {
 
-            Console.WriteLine("       WELCOME TO GPA CALCULATOR       ");
+            Console.WriteLine("        GPA CALCULATOR       ");
 
             Console.WriteLine("How many courses do you want to calculate? ");
             int TotalCourse = int.Parse(Console.ReadLine());
@@ -136,7 +136,7 @@ namespace First_GPA_App
         {
             var obj = new Program();
             obj.Calculation();
-           var objTable = new PrintTable();
+            var objTable = new PrintTable();
             objTable.PrintHeader();
         }
     }
